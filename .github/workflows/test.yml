@@ -1,0 +1,37 @@
+name: API Test
+
+# 触发条件：每次推送代码 + 每天定时自动跑
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 启动被测服务
+        run: |
+          python app.py &
+          sleep 3
+
+      - name: 运行测试
+        run: pytest
+
+      - name: 上传 Allure 结果
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results
+          path: reports/allure-results
