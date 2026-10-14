@@ -1,0 +1,29 @@
+{
+  "login_cases": [
+    {
+      "username": "test",
+      "password": "123456",
+      "expected_status": 200
+    },
+    {
+      "username": "test",
+      "password": "wrong123",
+      "expected_status": 401
+    },
+    {
+      "username": "wrong",
+      "password": "123456",
+      "expected_status": 401
+    },
+    {
+      "username": "",
+      "password": "",
+      "expected_status": 401
+    },
+    {
+      "username": "test",
+      "password": "123!@#",
+      "expected_status": 401
+    }
+  ]
+}

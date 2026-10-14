@@ -1,0 +1,11 @@
+# 多环境配置：通过环境变量 TEST_ENV 切换环境
+# 不设置 TEST_ENV 时，默认使用 dev
+
+dev:
+  base_url: http://127.0.0.1:5000
+
+test:
+  base_url: http://127.0.0.1:5001
+
+prod:
+  base_url: http://127.0.0.1:5002
