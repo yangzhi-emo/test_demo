@@ -5,7 +5,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron: '50 1 * * *'  # 北京时间每天 09:50
+    - cron: '0 2 * * *'  # 南京时间每天上午10点
 
 jobs:
   test:
