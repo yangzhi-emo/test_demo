@@ -3,8 +3,9 @@ name: API Test
 # 触发条件：每次推送代码 + 每天定时自动跑
 on:
   push:
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '50 1 * * *'  # 北京时间每天 09:50
 
 jobs:
   test:
