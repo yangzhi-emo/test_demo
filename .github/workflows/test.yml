@@ -1,11 +1,12 @@
 name: API Test
 
-# 触发条件：每次推送代码 + 每天定时自动跑
+# 触发条件：每次推送代码 + 一天2次整点定时自动跑
 on:
   push:
   workflow_dispatch:
   schedule:
-    - cron: '17 * * * *'
+    - cron: '0 0 * * *'   # UTC 00:00 → 北京时间 08:00
+    - cron: '0 12 * * *'  # UTC 12:00 → 北京时间 20:00
 
 jobs:
   test:
